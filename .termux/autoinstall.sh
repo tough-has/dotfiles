@@ -123,7 +123,7 @@ sleep 5
 
 # Install Nala Package Manager, Z Shell, Termux Clipboard, Neovim, NodeJS, Python-pip, Ruby, wget, logo-ls, Timewarrior, Taskwarrior, htop
 pkg update && pkg install nala -y
-nala install termux-api gh neovim lua-language-server stylua rust rust-analyzer nodejs python-pip perl ruby sqlite luarocks luajit ripgrep fd yq lazygit ranger wget gettext logo-ls ncurses-utils libuv timewarrior taskwarrior zoxide zellij tmux htop yazi -y || error_exit "${RED}Failed to install packages.${ENDCOLOR}"
+nala install termux-api gh neovim lua-language-server stylua rust rust-analyzer nodejs python-pip perl ruby sqlite luarocks luajit ripgrep fd yq lazygit ranger wget gettext logo-ls ncurses-utils libuv timewarrior taskwarrior zoxide tmux htop yazi -y || error_exit "${RED}Failed to install packages.${ENDCOLOR}"
 
 # Install pynvim, pnpm and neovim npm package, and neovim gem package
 pip install pynvim || error_exit "${RED}Failed to install pynvim.${ENDCOLOR}"
@@ -217,24 +217,7 @@ echo -e "${GREEN}Installing Yaziline${ENDCOLOR}"
 sleep 1
 git clone --depth=1 https://github.com/imsi32/yatline.yazi.git "$HOME/.config/yazi/plugins/yatline.yazi" || error_exit "${RED}Failed to install yazi.${ENDCOLOR}"
 
-# Hide README.md
-file_path="$HOME/GitHub/dotfiles"
 
-# Check if the file exists and is readable
-if [ -e "$file_path" ]; then
-  if [ -r "$file_path" ]; then
-    echo "${GREEN}Hiding README.md in ~/.termux ${ENDCOLOR}"
-    echo "${GREEN}moving...${ENDCOLOR}"
-    mv README.md ~/.termux/README.md || error_exit "${RED}Failed to hide README.md.${ENDCOLOR}"
-    git --git-dir="$HOME/GitHub/dotfiles" --work-tree="$HOME" assume-unchanged README.md || error_exit "${RED}Failed to hide README.md.${ENDCOLOR}"
-  else
-    echo "${RED}File exists but is not readable. Cannot execute Git command.${ENDCOLOR}"
-  fi
-else
-  echo "${YELLOW}Deletinging README.md and .git folder ${ENDCOLOR}"
-  echo "${GREEN}Removing...${ENDCOLOR}"
-  rm -rf README.md .git || error_exit "${RED}Failed to hide README.md.${ENDCOLOR}"
-fi
 
 # Finish Setup
 echo -e "${GREEN}Setup Complete! Press Ctrl+D for changes to take effect.${ENDCOLOR}"
