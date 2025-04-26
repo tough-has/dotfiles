@@ -260,10 +260,10 @@ if [[ "$neovim" == [Nn]* ]]; then
   rm -rf ~/.config/nvim ~/.local/share/nvim/ ~/.local/state/nvim/ ~/.cache/nvim/
 fi
 
- Hide README.md
+# Hide README.md
  file_path="$HOME/GitHub/dotfiles"
 
- Check if the file exists and is readable
+# Check if the file exists and is readable
  if [ -e "$file_path" ]; then
   if [ -r "$file_path" ]; then
      echo "${YELLOW}Hiding README.md in ~/.termux ${ENDCOLOR}"
