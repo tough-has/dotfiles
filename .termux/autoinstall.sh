@@ -9,7 +9,7 @@ ENDCOLOR=$'\e[0m'
 
 function error_exit {
   echo -e "${RED}Error: $1${ENDCOLOR}" >&2
-  exit 1
+  # exit 1
 }
 
 # Set Up Storage
