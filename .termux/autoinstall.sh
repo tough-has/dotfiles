@@ -1,4 +1,4 @@
-# !/data/data/com.termux/files/usr/bin/bash
+!/data/data/com.termux/files/usr/bin/bash
 # Install script for My Termux Dotfiles
 # Set custom variables
 ZSH_CUSTOM=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}
